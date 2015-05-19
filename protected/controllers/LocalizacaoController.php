@@ -159,7 +159,7 @@ $model	= Localizacao::model()->find($criteria);
              
         $geoLoca = Localizacao::model()->findAll($Criteria);
 		foreach ($geoLoca as $item) {
-            array_push($arr,$item->id, $item->lat, $item->long, $item->data);
+            array_push($arr,$item->id, $item->lat, $item->long, $item->data, $item->speed,$item->bat, $item->signal);
             array_push($arrayCgeo, $arr);
             $arr = array();
         }
