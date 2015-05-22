@@ -563,7 +563,7 @@ $url1 = $url[1];
 	<script src="js/neon-chat.js"></script>
 	<script src="js/neon-custom.js"></script>
 	<script src="js/neon-demo.js"></script>
-       
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 	
 	
 	
@@ -572,13 +572,47 @@ $url1 = $url[1];
             jQuery(function(){
                 jQuery(".summary").hide();
                  $(".btndelete").on('click',function(){
-                     debugger;
+                    
             $(".adelete").attr('href','index.php?r='+$(this).attr('data-controller')+'/deletar&id='+$(this).attr('data-id'));
         });
-        debugger;
+       
         $("span.<?php echo $menu[0] ; ?>").trigger("click");
      
-            });
-            </script>
+           
+         var origin = "Colombo, Srilanka",
+             destination = "Stockholm, Sweden",
+             service = new google.maps.DistanceMatrixService();
+           debugger;
+         service.getDistanceMatrix(
+             {
+               
+                 origins: [origin],
+                 destinations: [destination],
+                 travelMode: google.maps.TravelMode.DRIVING,
+                 avoidHighways: false,
+                 avoidTolls: false
+             }, 
+             callback
+         );
+         
+         function callback(response, status) {
+               debugger;
+             var orig = document.getElementById("orig"),
+                 dest = document.getElementById("dest"),
+                 dist = document.getElementById("dist");
+         
+             if(status=="OK") {
+                 dest.value = response.destinationAddresses[0];
+                 orig.value = response.originAddresses[0];
+                 dist.value = response.rows[0].elements[0].distance.text;
+             } else {
+                 alert("Error: " + status);
+             }
+         }
+     
+				
+				
+				});	
+				</script>
 </body>
 </html>
