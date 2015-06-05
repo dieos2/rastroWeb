@@ -48,7 +48,7 @@
                             <h3>{{:titulo}}</h3>
                         </div>
                         <div class="blog-post-media">
-                            <img src="http://redepara.com.br/Resize/CreateThumbnail?path=/imagens/galeria/{{:id_galeria}}/{{:nome_foto}}&maxHeight=636&maxWidth=848" alt="">
+                            <img class="fotoPrincipal" data-idGaleria="{{:id_galeria}}" src="http://redepara.com.br/Resize/CreateThumbnail?path=/imagens/galeria/{{:id_galeria}}/{{:nome_foto}}&maxHeight=636&maxWidth=848" alt="">
                         </div>
 
                         <div class="blog-post-text">
@@ -232,4 +232,27 @@
 
 
     })
+</script>
+
+
+   <!-- fotos de uma mesma galeria dentro da materia-->
+<script type="text/html" id="templateFotosGaleria">
+
+
+     <li><a href="http://redepara.com.br/imagens/galeria/{{:id_galeria}}/{{:nome}}" rel="prettyPhoto">
+                                <img src="http://redepara.com.br/Resize/CreateThumbnail?path=/imagens/galeria/{{:id_galeria}}/{{:nome}}&maxHeight=72&maxWidth=72" alt=""></a></li>
+
+
+
+</script>
+<script>
+    function preencheFotos() {
+        var id_galeria = jQuery(".fotoPrincipal").attr("data-idGaleria");
+        debugger
+        jQuery(document).ready(function () {
+            var a = buscaAPI('http://api.sgn.net.br/Api/galeria/3?dataIni=&dataFim=&termo=&filtro=&id_galeria=' + id_galeria, "templateFotosGaleria", "fotosDeGaleria");
+
+
+        })
+    }
 </script>

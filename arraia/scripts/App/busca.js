@@ -80,6 +80,9 @@ function process(data, callback, temp, resu) {
         jQuery("#" + resu).html(html);
     }
 
+    if (temp == 'templateNoticia') {
+        preencheFotos();
+    }
 
 
     $(".txttelefone").mask("(00) 0000-00009");
