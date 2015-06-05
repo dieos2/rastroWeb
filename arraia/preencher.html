@@ -1,0 +1,235 @@
+﻿<!--Lista de Noticias-->
+<script type="text/html" id="templateNoticiaList">
+    
+   
+
+
+       <li>       
+  
+        
+            <div class="entry clearfix" style="margin-bottom: 10px;">
+                <a href="interna.html?id={{:id_versao}}" title="{{:titulo}}" rel="bookmark">
+                        <img style="float: left;
+  margin-right: 7px;
+  border: solid 1px #B4B9BD;
+  padding: 2px;" class="thumb imagem" width="97" height="67" src="http://redepara.com.br/Resize/CreateThumbnail?path=/imagens/galeria/{{:id_galeria}}/{{:nome_foto}}&maxHeight=67&maxWidth=97" alt="">
+                    
+                    </a>
+<h4 class="post-title" style="  text-align: left;">
+
+                <a href="interna.html?id={{:id_versao}}">{{:titulo}}</a>
+</h4>
+                
+                <div class="meta">
+                    <span class="date">{{:~format(data_pub)}}</span>
+                </div>
+            </div>
+
+   
+ </li>
+  
+   
+</script>
+<script>
+
+    jQuery(document).ready(function () {
+        var a = buscaAPI('http://api.sgn.net.br/Api/Noticia/3?dataIni=&dataFim=&idOrgao=&filtro=&', "templateNoticiaList", "resultadosnoticaslist");
+
+
+    })
+</script>
+
+<!--Detalhes de Noticias-->
+<script type="text/html" id="templateNoticia">
+
+   
+     <div class="blog-post-detail-container">
+                        <div class="blog-post-info">
+                            <h3>{{:titulo}}</h3>
+                        </div>
+                        <div class="blog-post-media">
+                            <img src="http://redepara.com.br/Resize/CreateThumbnail?path=/imagens/galeria/{{:id_galeria}}/{{:nome_foto}}&maxHeight=636&maxWidth=848" alt="">
+                        </div>
+
+                        <div class="blog-post-text">
+                          <p> {{:texto}}</p>
+                            <div class="spacer30"></div>
+                            <h3 class="text-left">Sobre Autor</h3>
+                            <div class="testimonal">
+                                <div class="testimonal-image">
+                                    <img src="./Interna_files/1(1).jpg" alt="">
+                                </div>
+                                <div class="testimonal-text">
+                                    <div class="testimonal-title">{{:FirstName}}<span class="theme-color">{{:LastName}}</span></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="spacer30"></div>
+                       
+
+
+                    </div>
+
+</script>
+<script>
+   
+    var url = window.location.href;
+    var id = url.substring(url.lastIndexOf('=') + 1);
+    
+    jQuery(document).ready(function () {
+        var a = buscaAPI('http://api.sgn.net.br/Api/Noticia/3?dataIni=&dataFim=&idOrgao=&termo=&filtro=&itens=12&page=1&id_versao=' + id, "templateNoticia", "resultadosNoticia");
+
+
+    })
+</script> 
+
+<!--Lista de Galerias-->
+ <script type="text/html" id="templateGalerias">
+
+    
+                <div class="col-xs-12 col-sm-4 col-md-4 blog-masonry-post" style="position: absolute; left: 0px; top: 0px;">
+                        <div class="grid-blog-post">
+                            <a href="galeria.html?id={{:id_galeria}}" class="popup-link" title="title goes here">
+                                <img src="http://redepara.com.br/Resize/CreateThumbnail?path=/imagens/galeria/{{:id_galeria}}/{{:nome}}&maxHeight=293&maxWidth=390" alt=""></a>
+                            <div class="description">
+                                <h4><a href="galeria.html?id={{:id_galeria}}">{{:titulo}}</a></h4>
+                               
+                            </div>
+                        </div>
+                    </div>
+
+       
+</script>
+<script>
+    ;
+    jQuery(document).ready(function () {
+        var a = buscaAPI('http://api.sgn.net.br/Api/foto/3?dataIni=&dataFim=&idOrgao=&termo=&filtro=&itens=12&page=1', "templateGalerias", "resultadosGalerias");
+
+
+    })
+</script>
+
+<!--Lista de Videos-->
+<script type="text/html" id="templateVideosList">
+
+    
+                <div class="col-xs-12 col-sm-4 col-md-4 blog-masonry-post" style="position: absolute; left: 0px; top: 0px;">
+                        <div class="grid-blog-post">
+                              <a href="http://www.youtube.com/watch?v={{:codigo}}" rel="prettyPhoto" title=""><img src="http://i1.ytimg.com/vi/{{:codigo}}/hqdefault.jpg" alt="YouTube" width="360"  /></a>
+                           
+                           
+                        </div>
+                    </div>
+
+       
+</script>
+<script>
+    ;
+    jQuery(document).ready(function () {
+        var a = buscaAPI('http://api.sgn.net.br/Api/video/3?dataIni=&dataFim=&idOrgao=&termo=&filtro=&itens=12&page=1', "templateVideosList", "resultadosVideosList");
+
+
+    })
+</script>
+
+<!--Detalhes de Galeria-->
+<script type="text/html" id="templateGaleria">
+
+    
+                <div class="col-xs-12 col-sm-4 col-md-4 blog-masonry-post" style="position: absolute; left: 0px; top: 0px;">
+                        <div class="grid-blog-post">
+                            <a href="http://redepara.com.br/imagens/galeria/{{:id_galeria}}/{{:nome}}" class="popup-link" title="title goes here">
+                                <img src="http://redepara.com.br/Resize/CreateThumbnail?path=/imagens/galeria/{{:id_galeria}}/{{:nome}}&maxHeight=293&maxWidth=390" alt=""></a>
+                            <div class="description">
+                                <h4><a href="#">{{:descricao}}</a></h4>
+                               
+                            </div>
+                        </div>
+                    </div>
+
+       
+</script>
+<script>
+    var url = window.location.href;
+    var id = url.substring(url.lastIndexOf('=') + 1);
+    
+    jQuery(document).ready(function () {
+        var a = buscaAPI('http://api.sgn.net.br/Api/galeria/3?dataIni=&dataFim=&termo=&filtro=&id_galeria=' + id, "templateGaleria", "resultadosGaleria");
+
+
+    })
+</script>
+
+<!--Lista de Noticias Home-->
+<script type="text/html" id="templateNoticias">
+    
+   
+
+
+              
+    <div class="col-xs-12 col-sm-4 col-md-4 blog-masonry-post " style="position: absolute; left: 0px; top: 0px;">
+        <div class="blog-boxed">
+            <div class="media-content">
+                <a href="#" class="popup-link" title="title goes here">
+                    <img src="http://redepara.com.br/Resize/CreateThumbnail?path=/imagens/galeria/{{:id_galeria}}/{{:nome_foto}}&maxHeight=270&maxWidth=360" alt=""></a>
+            </div>
+            <div class="media-text">
+                <h4><a href="interna.html?id={{:id_versao}}">{{:titulo}}</a></h4>
+                <h5><a href="interna.html?id={{:id_versao}}">{{:chapeu}}</a></h5>
+                <p>{{:texto.substring(0,50)}}...</p>
+            </div>
+        </div>
+    </div>
+ 
+  
+   
+</script>
+<script>
+
+    jQuery(document).ready(function () {
+        var a = buscaAPI('http://api.sgn.net.br/Api/Noticia/3?dataIni=&dataFim=&idOrgao=&termo=&filtro=&itens=12&page=1&status=3', "templateNoticias", "resultadosNoticias");
+
+
+    })
+</script>
+
+<!--Galerias do rodapé-->
+<script type="text/html" id="templateMultimidia">
+
+
+    <li><a href="galeria.html?id={{:id_galeria}}">
+        <img src="http://redepara.com.br/Resize/CreateThumbnail?path=/imagens/galeria/{{:id_galeria}}/{{:nome}}&maxHeight=72&maxWidth=72" alt=""></a></li>
+
+
+
+</script>
+<script>
+
+    jQuery(document).ready(function () {
+        var a = buscaAPI('http://api.sgn.net.br/Api/foto/3?dataIni=&dataFim=&idOrgao=&termo=&filtro=&itens=9&page=1', "templateMultimidia", "resultadosMultimidia");
+
+
+    })
+</script>
+
+<!--Videos do rodape-->
+<script type="text/html" id="templateVideo">
+
+
+    <li>
+       <a href="http://www.youtube.com/watch?v={{:codigo}}" rel="prettyPhoto" title=""><img src="http://img.youtube.com/vi/{{:codigo}}/2.jpg" alt="YouTube" width="60" /></a>
+
+    </li>
+
+
+
+</script>
+<script>
+
+    jQuery(document).ready(function () {
+        var a = buscaAPI('http://api.sgn.net.br/Api/video/3?dataIni=&dataFim=&idOrgao=&termo=&filtro=&itens=3&page=1', "templateVideo", "resultadosMultimidia");
+
+
+    })
+</script>

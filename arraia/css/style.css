@@ -316,7 +316,7 @@ img {
 }
 
 .navbar-move {
-  background: rgba(239, 209, 54, 1);
+    background: #B4D793;
 }
 
 .navbar .nav {
@@ -359,9 +359,9 @@ img {
 .navbar .nav > li > a {
 	font-family: 'Roboto', serif;
   text-transform:none;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 16px;
-  color: #2c2e32;
+  color: #fff;
 
   padding:0px 10px 0 0;
   font-weight:400;
@@ -382,12 +382,12 @@ img {
 }
 
 .navbar .nav > li.selected > a {
-  color: #000;
+  color: #fff;
    font-weight:bold;  
 }
 
 .navbar .nav > li:hover > a {
-   color: #000;
+   color: #fff;
    font-weight:bold;   
 }
 
